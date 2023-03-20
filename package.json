@@ -1,0 +1,30 @@
+{
+  "name": "note-taking-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set NODE_ENV=development&& nodemon server.js",
+    "prod": "set NODE_ENV=production&& node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muyixone/Note-taking-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muyixone/Note-taking-App/issues"
+  },
+  "homepage": "https://github.com/Muyixone/Note-taking-App#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express.js": "^1.0.0",
+    "mongoose": "^7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
