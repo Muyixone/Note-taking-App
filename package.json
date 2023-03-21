@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Muyixone/Note-taking-App#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "express.js": "^1.0.0",
     "mongoose": "^7.0.2"
