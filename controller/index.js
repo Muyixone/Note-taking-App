@@ -77,17 +77,14 @@ const deleteNote = async (req, res, next) => {
   const id = req.params.id;
 
   // Check if the id is a valid mongodbid
-  // if (!objectId.isValid(id)) {
-  //   return res.status(400).json({ error: 'Parameter not correct' });
-  // }
-
-  // await notesModel.deleteOne({ _id: req.params.id });
-  // return res.status(200).json({ messgae: 'Note deleted successfully' });
-
   objectId.isValid(id);
   try {
-    await notesModel.deleteOne({ _id: id });
-    return res.status(200).json({ messgae: 'Note deleted' });
+    const note = await notesModel.findOne({ _id: id });
+    if (note) {
+      await notesModel.deleteOne({ _id: id });
+      return res.status(200).json({ messgae: 'Note deleted' });
+    }
+    return res.status(404).json({ message: 'Not Found' });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
