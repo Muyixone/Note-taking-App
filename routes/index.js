@@ -1,7 +1,7 @@
 const express = require('express');
 const {
-  getHomepage,
-  getNote,
+  getAllNotes,
+  getNoteById,
   createNote,
   updateNote,
   deleteNote,
@@ -10,10 +10,10 @@ const {
 const router = express.Router();
 
 router
-  .get('/', getHomepage)
+  .get('/', getAllNotes)
   .post('/', createNote)
   .put('/:id', updateNote)
   .delete('/:id', deleteNote)
-  .get('/:id', getNote);
+  .get('/:id', getNoteById);
 
 module.exports = router;
