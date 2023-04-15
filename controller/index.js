@@ -79,12 +79,13 @@ const deleteNote = async (req, res, next) => {
   // Check if the id is a valid mongodbid
   objectId.isValid(id);
   try {
+    // Check if the id is present in the database before deleting
     const note = await notesModel.findOne({ _id: id });
     if (note) {
       await notesModel.deleteOne({ _id: id });
       return res.status(200).json({ messgae: 'Note deleted' });
     }
-    return res.status(404).json({ message: 'Not Found' });
+    return res.status(404).json({ message: `Note with id: ${id} not Found` });
   } catch (err) {
     return res.status(400).json({ error: err.message });
   }
