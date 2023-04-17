@@ -1,5 +1,6 @@
 const notesModel = require('../models/notes_model');
 const objectId = require('mongodb').ObjectId;
+let title = 'Note taking app';
 
 /**
  * Get note title and description for homepage view
@@ -48,6 +49,12 @@ const getNoteById = async (req, res, next) => {
  * CREATE NOTE
  */
 ///////////
+
+const getCreateNotePage = async (req, res) => {
+  console.log('Create note page requested');
+  res.render('createNote', { title });
+};
+
 const createNote = async (req, res, next) => {
   // ADD INPUT VALIDATION WITH JOI HERE
 
@@ -108,6 +115,7 @@ module.exports = {
   getHomepage,
   getAllNotes,
   getNoteById,
+  getCreateNotePage,
   createNote,
   updateNote,
   deleteNote,
