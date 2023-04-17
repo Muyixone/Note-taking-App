@@ -5,7 +5,12 @@
   </head>
   <body>
     <main class="container_main">
-      <p>Welcome, yout thoughts counts.!!!</p>
+      <div class="container_head">
+        <p>Welcome, yout thoughts counts.!!!</p>
+        <button class="btn" type="submit" value="Create Note">
+          Create Note
+        </button>
+      </div>
       <% notes.forEach((note) => { %>
       <div class="note_container">
         <h4><%= note.title %></h4>
