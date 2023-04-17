@@ -1,14 +1,27 @@
 const notesModel = require('../models/notes_model');
 const objectId = require('mongodb').ObjectId;
 
-const getHomepage = async (req, res, next) => {};
+/**
+ * Get note title and description for homepage view
+ 
+ */
+const getHomepage = async (req, res, next) => {
+  await notesModel
+    .find({})
+    .then((notes) => {
+      //return res.status(200).json({ notes });
+      return res.render('homepage', { notes, title: 'Note taking app' });
+    })
+    .catch((err) => res.status(404).json(err.message));
+};
 
 // GET ALL NOTES FROM DATABASE
 const getAllNotes = async (req, res, next) => {
   await notesModel
     .find({})
     .then((notes) => {
-      return res.status(200).json({ notes });
+      //return res.status(200).json({ notes });
+      return res.render('notes', { notes, title: 'Note taking app' });
     })
     .catch((err) => res.status(404).json(err.message));
 };

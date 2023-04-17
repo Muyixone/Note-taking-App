@@ -4,8 +4,14 @@
     <%- include('./partials/head')%>
   </head>
   <body>
-    <main>
+    <main class="container_main">
       <p>Welcome, yout thoughts counts.!!!</p>
+      <% notes.forEach((note) => { %>
+      <div class="note_container">
+        <h4><%= note.title %></h4>
+        <p><%= note.description %></p>
+      </div>
+      <% }) %>
     </main>
 
     <footer><%- include('./partials/footer')%></footer>
